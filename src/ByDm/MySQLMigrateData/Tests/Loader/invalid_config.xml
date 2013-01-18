@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<migration
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='file:/home/bykov/NetBeansProjects/ByDmMySQLMigrateData/src/ByDm/MySQLMigrateData/Resources/migration_configuration.xsd'>
+    <tables>
+        <table source="" destination="">
+            <element>
+                <column destination="" value_type="" value=""></column>
+            </element>
+        </table>
+    </tables>
+
+</migration>

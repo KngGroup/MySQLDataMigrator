@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<migration
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='file:/home/bykov/NetBeansProjects/ByDmMySQLMigrateData/src/ByDm/MySQLMigrateData/Resources/migration_configuration.xsd'
+    source="db1" destination="db2"
+    >
+    <tables>
+        <table source="tab1" destination="tab2">
+            <columns>
+                <column destination="col1" value_type="timestamp" />
+                <column destination="col2" value_type="scalar" value="3.11" />
+            </columns>
+        </table>
+        <table source="tab3" destination="tab4">
+            <columns>
+                <column destination="col3" value_type="scalar" value="true" />
+                <column destination="col4" value_type="scalar" value="null" />
+                <column destination="col5" value="column_name" />
+            </columns>
+        </table>
+    </tables>
+
+</migration>

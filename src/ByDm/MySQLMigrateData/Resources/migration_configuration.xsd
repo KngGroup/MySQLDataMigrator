@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            elementFormDefault="qualified"
+            >
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Author: Dmitry Bykov
+            MySQL data migration schema
+        </xsd:documentation>
+    </xsd:annotation>
+  
+    <xsd:element name="migration" type="MigrationType"/>
+  
+    <xsd:complexType name="MigrationType">
+        <xsd:choice  minOccurs="1">
+            <xsd:element name="tables" type="TablesType" />
+        </xsd:choice>
+        <xsd:attribute name="source" type="xsd:string" use="required" />
+        <xsd:attribute name="destination" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="TablesType">
+        <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="table" type="TableType" />
+        </xsd:choice>
+    </xsd:complexType>
+  
+    <xsd:complexType name="TableType">
+        <xsd:choice minOccurs="1">
+            <xsd:element name="columns">
+                <xsd:complexType>
+                    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+                        <xsd:element name="column" type="column" />
+                    </xsd:choice>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:choice>    
+        <xsd:attribute name="source" type="xsd:string" use="required" />
+        <xsd:attribute name="destination" type="xsd:string" use="required" />
+    </xsd:complexType>
+  
+    <xsd:complexType name="column">
+        <xsd:attribute name="destination" use="required" />
+        <xsd:attribute name="value_type">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="scalar"/>
+                    <xsd:enumeration value="column" />
+                    <xsd:enumeration value="timestamp" />
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="value" />
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,13 @@
+{
+    "name": "bydm/mysql-data-migration",
+    "description": "migrate data from one database to another by mapping",
+    "keywords": [ "mysql", "migration" ],
+    "license": "GNU",
+    "require": {
+        "php": ">=5.3.3",
+        "doctrine/dbal": ">=2.2.1"
+    },
+    "autoload": {
+        "psr-0": { "ByDm": "src" }
+    }
+}
