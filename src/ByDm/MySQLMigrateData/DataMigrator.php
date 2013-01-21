@@ -109,6 +109,7 @@ class DataMigrator
                     break;
                 case Configuration::VALUE_TYPE_EXPRESSION:
                     $sourceColumns .= $sourceDefenition['value'] . ', ';
+                    break;
                 default:
                     $sourceColumns .= 's.`' . trim($sourceDefenition['value'], '`') . '`, ';
                     break;
@@ -117,7 +118,7 @@ class DataMigrator
         
         $where = '';
         if (isset($mapping['condition'])) {
-            $where .= 'WHERE ' . $mapping['condition'];
+            $where .= ' WHERE ' . $mapping['condition'];
         }
         
         return sprintf(
