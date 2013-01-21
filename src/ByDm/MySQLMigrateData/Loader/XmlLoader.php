@@ -112,6 +112,11 @@ class XmlLoader extends AbstractLoader
                 'columns'      => array()
             );
             
+            //WHERE part of source data select query
+            if (isset($tableNode['condition'])) {
+                $tableMapping['condition'] = (string) $tableNode['condition'];
+            }
+            
             foreach($tableNode->columns->children() as $columnNode) {
                 $valueType = (string) $columnNode['value_type'];
                 if (!$valueType) {

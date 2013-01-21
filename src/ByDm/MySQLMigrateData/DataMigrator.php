@@ -68,12 +68,14 @@ class DataMigrator
         
         $destinationTable = $destinationDb . '.' .$mapping['destination'];
         $sourceTable      = $sourceDb . '.' . $mapping['source'] . ' AS s';
-
+        
+        //destination table doctrine column mapping
         $columns = $this->schemaManager->listTableColumns(
             $mapping['destination'], 
             $destinationDb
         );
         
+        //destination column doctrine types colName => colType
         $columnTypes = array();
         foreach($columns as $column) {
             $columnTypes[$column->getName()] = $column->getType()->getName();
@@ -113,11 +115,16 @@ class DataMigrator
             }
         }
         
+        $where = '';
+        if (isset($mapping['condition'])) {
+            $where .= 'WHERE ' . $mapping['condition'];
+        }
+        
         return sprintf(
             $sql, 
             $destinationTable, 
             implode(', ', $destinationColumns), 
-            trim($sourceColumns, ', '),
+            trim($sourceColumns, ', ') . $where,
             $sourceTable
         );
     }
