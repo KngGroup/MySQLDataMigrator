@@ -125,8 +125,8 @@ class DataMigrator
             $sql, 
             $destinationTable, 
             implode(', ', $destinationColumns), 
-            trim($sourceColumns, ', ') . $where,
+            trim($sourceColumns, ', '),
             $sourceTable
-        );
+        ) . $where;
     }
 }
