@@ -18,7 +18,6 @@
         </xsd:choice>
         <xsd:attribute name="source" type="xsd:string" use="required" />
         <xsd:attribute name="destination" type="xsd:string" use="required"/>
-        <xsd:attribute name="condition" type="xsd:string" />
     </xsd:complexType>
     
     <xsd:complexType name="TablesType">
@@ -39,6 +38,7 @@
         </xsd:choice>    
         <xsd:attribute name="source" type="xsd:string" use="required" />
         <xsd:attribute name="destination" type="xsd:string" use="required" />
+        <xsd:attribute name="condition" type="xsd:string" />
     </xsd:complexType>
   
     <xsd:complexType name="column">
